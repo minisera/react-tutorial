@@ -1,58 +1,46 @@
 import React from 'react';
 import Article from './Article';
+import * as FooBar from './components/FooBar';
+import Hoge from './components/Hoge';
 
-class Blog extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isPublished: false,
-      count: 0
-    }
-  }
-
-  // 公開状態を反転させる
-  togglePublished = () => {
-    this.setState({
-      isPublished: !this.state.isPublished
-    });
-  };
-  componentDidMount(){
-    // ボタンがクリックされたらカウントアプする
-    document.getElementById("counter").addEventListener("click",this.countUp)
-  }
+const Blog = () => {
+  // componentDidMount(){
+  //   // ボタンがクリックされたらカウントアプする
+  //   document.getElementById("counter").addEventListener("click",this.countUp)
+  // }
   
-  componentDidUpdate() {
-    // stateが１０以上になったらカウントを０にする
-    console.log(this.state.count);
-    if (this.state.count >= 10) {
-      this.setState({count: 0})
-    }
-  }
+  // componentDidUpdate() {
+  //   // stateが１０以上になったらカウントを０にする
+  //   console.log(this.state.count);
+  //   if (this.state.count >= 10) {
+  //     this.setState({count: 0})
+  //   }
+  // }
   
-  componentWillUnmount(){
-    // ボタンがクリックされたらカウントアプする
-    document.getElementById("counter").removeEventListener("click",this.countUp)
-  }
+  // componentWillUnmount(){
+  //   // ボタンがクリックされたらカウントアプする
+  //   document.getElementById("counter").removeEventListener("click",this.countUp)
+  // }
 
 
-  countUp = () => {
-    this.setState({count: this.state.count + 1})
-  }
+  // countUp = () => {
+  //   this.setState({count: this.state.count + 1})
+  // }
 
-  render() {
+  // render() {
     return (
       <>
         <Article 
         title="React"
-        isPublished={this.state.isPublished}
-        count= {this.state.count}
+        // count= {this.state.count}
         // そのまま渡すと無限ループおきる
-        toggle={() => this.togglePublished()}
         />
-        
+        <FooBar.Foo />
+        <FooBar.Bar />
+        <Hoge />
       </>
     )
-  }
+  // }
 }
 
 export default Blog
