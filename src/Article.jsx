@@ -8,7 +8,7 @@ const Article = (props)=> {
     <div>
       <h2>{props.title}</h2>
       <input type="checkbox" checked={isPublished} onClick={()=> togglePublished(!isPublished)}/>
-      <LikeButton count={props.count}/>
+      <LikeButton />
     </div>
   )
 };
